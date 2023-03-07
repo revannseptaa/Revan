@@ -19,7 +19,7 @@ class MasterbarangController extends Controller
     public function create()
     {
         $data = [
-            'categorys' =>  Category::findOrFaill($id),
+            'categorys' =>  Category::findOrFail($id),
             'brands'    =>  Brand::get(),
             'satuans'   =>  Satuan::get(),
         ];

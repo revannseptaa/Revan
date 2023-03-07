@@ -24,7 +24,7 @@
                         <th>Tanggal</th>
                         <th>Quantity</th>
                         @role('gudang')
-                            <th>Options</th>
+                        <th>Options</th>
                         @endrole
                     </tr>
                 </thead>
@@ -37,15 +37,17 @@
                             <td>{{$permintaan->created_at}}</td>
                             <td>{{$permintaan->total}}</td>
                             @role('gudang')
-                                @if ($permintaan->status !== 'in')
+                                @if ($permintaan->status == 'in')
                                     <td class="d-flex">
-                                        <form action="" method="post">
+                                        <form action="" method="">
                                             @csrf
-                                            <button class="btn btn-outline-info btn-sm">Setujui</button>
+                                            @method('PATCH')
+                                            <a href="{{route('transaksi.update', $permintaan->id)}}" class="btn btn-outline-info btn-sm">Setujui</a>
                                         </form>
                                         <form action="" method="post">
                                             @csrf
-                                            <button class="btn btn-outline-danger btn-sm ml-2">Tolak</button>
+                                            @method('GET')
+                                            <a href="{{route('transaksi.destroy', $permintaan->id)}}" class="btn btn-outline-danger btn-sm ml-2">Tolak</a>
                                         </form>
                                     </td>
                                 @endif

@@ -59,6 +59,11 @@ Route::group(['prefix' => 'master-barang'], function () {
 Route::group(['prefix' => 'transaksi'], function () {
     route::get('/in', 'Transaksi\InController@index')->name('transaksi.in');
     route::get('/out', 'Transaksi\OutController@index')->name('transaksi.out');
+    route::patch('/update/{permintaan}','Transaksi\InController@update')->name('transaksi.update');
+    route::get('{permintaan}','Transaksi\InController@destroy')->name('transaksi.destroy');
+    route::post('/store/{permintaan}', 'Transaksi\InController@store')->name('transaksi.store');
+
+
 });
 Route::group(['prefix' => 'rak'], function () {
     route::get('/barang/{category}', 'Rak\RakController@index')->name('rak.barang');

@@ -30,20 +30,6 @@
                             <td>{{$permintaan->jumlah}}</td>
                             <td>{{$permintaan->created_at}}</td>
                             <td>{{$permintaan->total}}</td>
-                            @role('gudang')
-                            @if ($permintaan->status !== 'in')
-                            <td class="d-flex">
-                                <form action="" method="post">
-                                    @csrf
-                                    <button class="btn btn-outline-info btn-sm">Setujui</button>
-                                </form>
-                                <form action="" method="post">
-                                    @csrf
-                                    <button class="btn btn-outline-danger btn-sm ml-2">Tolak</button>
-                                </form>
-                            </td>
-                            @endif
-                            @endrole
                         </tr>
                         @empty
 
