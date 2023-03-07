@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -34,6 +33,7 @@ Route::group(['prefix' => 'brand'], function () {
     route::get('/edit/{brand}', 'Brand\BrandController@edit')->name('brand.edit');
     route::post('/store','Brand\BrandController@store')->name('brand.store');
     route::patch('/update/{brand}','Brand\BrandController@update')->name('brand.update');
+    route::get('{brand}','Brand\BrandController@destroy')->name('brand.destroy');
 });
 
 Route::group(['prefix' => 'Satuan'], function () {
@@ -41,6 +41,8 @@ Route::group(['prefix' => 'Satuan'], function () {
     route::get('/edit/{satuan}', 'Uom\UomController@edit')->name('uom.edit');
     route::post('/store','Uom\UomController@store')->name('uom.store');
     route::patch('/update/{satuan}','Uom\UomController@update')->name('satuan.update');
+    route::get('{satuan}','Uom\UomController@destroy')->name('satuan.destroy');
+
 
 });
 

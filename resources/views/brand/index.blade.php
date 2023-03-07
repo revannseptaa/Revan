@@ -3,12 +3,10 @@
 
 @section('content')
 <div class="container">
-    <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb bg-transparent d-flex align-items-center">
-            <li class="breadcrumb-item" aria-current="page">Master Data</li>
-            <li class="breadcrumb-item active" aria-current="page">Brand</li>
-        </ol>
-    </nav>
+    <div class="d-flex">
+        <p style="matgin-left: 2px; font-weight: bold;">Master Data</p>
+        <p style="margin-left: 5px;">/ Brand</p>
+    </div>
     <div class="row">
         @role('gudang')
         <div class="col-md-4">
@@ -44,8 +42,9 @@
                                     <td>
                                         <form action="" method="post">
                                             @csrf
-                                            <a href="{{route('brand.edit')}}" class="btn btn-outline-warning btn-sm">Edit Brand</a>
-                                            <button class="submit btn btn-outline-danger btn-sm">Hapus</button>
+                                            @method('GET')
+                                            <a href="{{route('brand.edit', $brand->id)}}" class="btn btn-outline-warning btn-sm">Edit Brand</a>
+                                            <a href="{{route('brand.destroy', $brand->id)}}" class="submit btn btn-outline-danger btn-sm">Hapus</a>
                                         </form>
                                     </td>
                                 </tr>
@@ -71,8 +70,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>BRND/20220403/001</td>
-                                    <td>Kawasaki</td>
+                                    <td>{{$brand->no_reg}}</td>
+                                    <td>{{$brand->nama}}</td>
                                 </tr>
                             </tbody>
                         </table>

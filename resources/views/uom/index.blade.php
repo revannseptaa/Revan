@@ -3,12 +3,10 @@
 
 @section('content')
 <div class="container">
-    <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb bg-transparent d-flex align-items-center">
-            <li class="breadcrumb-item" aria-current="page">Master Data</li>
-            <li class="breadcrumb-item active" aria-current="page">Satuan</li>
-        </ol>
-    </nav>
+    <div class="d-flex">
+        <p style="matgin-left: 2px; font-weight: bold;">Master Data</p>
+        <p style="margin-left: 5px;">/ Satuan</p>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <form action="{{route('uom.store')}}" method="post">
@@ -39,8 +37,9 @@
                                     <td>
                                         <form action="" method="post">
                                             @csrf
-                                            <a href="{{route('satuan.edit')}}" class="btn btn-outline-warning btn-sm">Edit Satuan</a>
-                                            <button class="btn btn-outline-danger btn-sm">Hapus Satuan</button>
+                                            @method('GET')
+                                            <a href="{{route('uom.edit',  $satuan->id)}}" class="btn btn-outline-warning btn-sm">Edit Satuan</a>
+                                            <a href="{{route('satuan.destroy', $satuan->id)}}" class="btn btn-outline-danger btn-sm">Hapus Satuan</a>
                                         </form>
                                     </td>
                                 </tr>
