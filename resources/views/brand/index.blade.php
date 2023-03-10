@@ -69,11 +69,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @forelse ($brands as $brand)
                                 <tr>
                                     <td>{{$brand->no_reg}}</td>
                                     <td>{{$brand->nama}}</td>
                                 </tr>
                             </tbody>
+                            @empty
+
+                            @endforelse
                         </table>
                     </div>
                 </div>
