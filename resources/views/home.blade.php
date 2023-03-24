@@ -1,8 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="shadow-lg p-3 mb-5 bg-white rounded"><h3>Selamat Datang!</h3></div>
-<div class="text-center">
-  <img src="{{asset('asset/img/kereta.png')}}" width="40%" alt="...">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

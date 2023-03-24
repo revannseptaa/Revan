@@ -1,24 +1,35 @@
-@extends('layouts.app')
-
-
-@section('content')
+@extends('layouts.app') @section('content')
 <div class="container">
-    <div class="d-flex">
-        <p style="matgin-left: 2px; font-weight: bold;">Master Data</p>
-        <p style="margin-left: 5px;">/ Brand</p>
-    </div>
+    <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb bg-transparent d-flex align-items-center">
+            <li class="breadcrumb-item" aria-current="page">Master Data</li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Edit Brand
+            </li>
+        </ol>
+    </nav>
     <div class="row">
         <div class="col-md-4">
             <div class="card border-0">
                 <div class="card-body">
-                    <form action="{{route('brand.update', $brand->id)}}" method="post">
-                        @csrf
-                        @method('PATCH')
+                    <form
+                        action="{{route('brand.update', $brand->id)}}"
+                        method="post"
+                    >
+                        @csrf @method('PATCH')
                         <div class="form-group">
-                            <label for="nama">Nama Brand</label>
-                            <input type="nama" name="nama" value="{{old('nama', $brand->nama)}}" id="" class="form-control">
+                            <label for="nama">Nama Kategori</label>
+                            <input
+                                type="text"
+                                name="nama"
+                                id="nama"
+                                value="{{old('nama', $brand->nama)}}"
+                                class="form-control"
+                            />
                         </div>
-                        <button class="btn btn-outline-info">Simpan Brand</button>
+                        <button class="btn btn-outline-warning btn-sm">
+                            Perbarui Brand
+                        </button>
                     </form>
                 </div>
             </div>
@@ -35,8 +46,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                  <td>{{$brand->no_reg}}</td>
-                                  <td>{{$brand->nama}}</td>
+                                <td>{{$brand->no_reg}}</td>
+                                <td>{{$brand->nama}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -44,7 +55,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 @endsection

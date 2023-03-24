@@ -10,7 +10,7 @@ class OutController extends Controller
 {
     public function index()
     {
-         $permintaans = Permintaan::with('barang')->where('status','out')->paginate(5);
-         return view('transaksi.out.index',compact('permintaans'));
+        $permintaans = Permintaan::with('barang')->where('status', 1)->paginate(5);
+        return view('transaksi.out.index', compact('permintaans'));
     }
 }
