@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
     {
         $ketua = factory(User::class)->create([
             'name'     => 'admin',
-            'email'    => 'admin@nugi.com',
+            'email'    => 'revan10@persediaan.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('persediaan'),
         ]);
 
         $ketua->assignRole('ketua');
@@ -27,9 +27,9 @@ class UsersTableSeeder extends Seeder
 
         $customer = factory(User::class)->create([
             'name'     => 'customer',
-            'email'    => 'customer@nugi.com',
+            'email'    => 'septa10@persediaan.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('customer'),
+            'password' => bcrypt('persediaan'),
         ]);
 
         $customer->assignRole('customer');
